@@ -1,3 +1,31 @@
+#darkModeToggle {
+  background-size: contain; /* 画像をボタンのサイズに合わせる */
+  background-repeat: no-repeat; /* 画像を繰り返さない */
+  background-position: center; /* 画像を中央に配置 */
+  border: none; /* 枠線を削除 */
+  cursor: pointer; /* カーソルをポインターに変更 */
+  background-color: transparent; /* 背景を透明にする */
+  background-image: url('moon.png');
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+  padding: 5px; /* パディングを追加 */
+  border-radius: 50%; /* ボタン全体を円形にする */
+  background-color: #ffffff; /* 背景色と不透明度 */
+  border : 3px solid #626262;
+}
+
+html {
+  transition: filter 0.1s ease-in-out; /* filterプロパティの変化にトランジションを追加 */
+}
+
+html[theme='dark-mode'] {
+  filter: invert(1) hue-rotate(180deg); /* 必要であれば残す */
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -7,6 +35,7 @@ body {
     background-color: #d3fcff;
     transition: opacity 2s ease, background-color 0.5s ease; /* 背景色変更のトランジションを追加 */
 }
+
 
 #logoContainer {
     display: flex;

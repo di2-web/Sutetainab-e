@@ -30,4 +30,17 @@ function typeWriter() {
     }
 }
 
+const darkModeToggle = document.getElementById('darkModeToggle');
+const htmlElement = document.documentElement;
+
+darkModeToggle.addEventListener('click', () => {
+    if (htmlElement.hasAttribute('theme')) {
+        htmlElement.removeAttribute('theme');
+        darkModeToggle.style.backgroundImage = "url('moon.png')"; // 月の画像を設定
+    } else {
+        htmlElement.setAttribute('theme', 'dark-mode');
+        darkModeToggle.style.backgroundImage = "url('sun.png')"; // 太陽の画像を設定
+    }
+});
+
 typeWriter();
