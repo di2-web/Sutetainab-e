@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ログイン</title>
+</head>
+<body>
+
+  <h1>ログイン / サインアップ</h1>
+
+  <form id="loginForm">
+    <label for="username">ユーザー名:</label><br>
+    <input type="text" id="username" name="username"><br><br>
+    <button type="submit">ログイン/サインアップ</button>
+  </form>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value;
+      if (!username) {
+        alert("ユーザー名を入力してください。");
+        return;
+      }
+
+      localStorage.setItem('username', username);
+      window.location.href = 'mypage.html';
+    });
+
+  </script>
+</body>
+</html>

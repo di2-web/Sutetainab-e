@@ -279,4 +279,6 @@ darkModeToggle.addEventListener('click', () => {
   syncDarkMode();
 });
 
+
+
 getCurrentLocation();
