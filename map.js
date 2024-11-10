@@ -7,6 +7,13 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
  attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+// trash アイコンの設定
+var trashIcon = L.icon({
+  iconUrl: 'trash.png', 
+  iconSize: [25, 25],
+  iconAnchor: [12.5, 12.5]
+});
+
 // 現在地のアイコン設定
 var hereIcon = L.icon({
  iconUrl: 'locate.png',
@@ -41,6 +48,34 @@ var searchIcon = L.icon({
 
 // クラスターの設定
 var markers = L.markerClusterGroup({disableClusteringAtZoom: 17});
+
+
+// マーカーの追加
+markers.addLayer(L.marker([35.16290012098015, 136.90693353732513], {icon: trashIcon})
+  .bindPopup("<button id='routeButton' onclick='routeTo(35.16290012098015, 136.90693353732513)'>ここまで行く</button><b><br>パルコ</b>")
+  .on('mouseover', function (e) {
+    this.openPopup();
+  })
+);
+
+markers.addLayer(L.marker([35.143836348162345, 136.90106010763705], {icon: trashIcon})
+  .bindPopup("<button id='routeButton' onclick='routeTo(35.143836348162345, 136.90106010763705)'>ここまで行く</button><b><br>あすなる</b>")
+  .on('mouseover', function (e) {
+    this.openPopup();
+  })
+);
+markers.addLayer(L.marker([35.1721467715954, 136.90822665247896], {icon: trashIcon})
+  .bindPopup("<button id='routeButton' onclick='routeTo(35.1721467715954, 136.90822665247896)'>ここまで行く</button><b><br>久屋大通</b>")
+  .on('mouseover', function (e) {
+    this.openPopup();
+  })
+);
+markers.addLayer(L.marker([35.14300969046676, 136.90115035693154], {icon: trashIcon})
+  .bindPopup("<button id='routeButton' onclick='routeTo(35.14300969046676, 136.90115035693154)'>ここまで行く</button><b><br>名鉄金山</b>")
+  .on('mouseover', function (e) {
+    this.openPopup();
+  })
+);
 
  markers.addLayer(L.marker([35.165205976241914, 136.90444022901883], {icon: lawsonIcon})
  .bindPopup("<button id='routeButton' onclick= 'routeTo(35.165205976241914, 136.90444022901883)'>ここまで行く</button><b><br>可燃、不燃</b>") // 通常のクリック時のポップアップは残す
