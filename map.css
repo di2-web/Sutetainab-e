@@ -12,6 +12,10 @@
   z-index: 100;
   width: 50px;
   height: 50px;
+  padding: 5px; /* パディングを追加 */
+  border-radius: 50%; /* ボタン全体を円形にする */
+  background-color: #ffffff; /* 背景色と不透明度 */
+  border : 3px solid #626262;
 }
 
 html {
@@ -40,6 +44,7 @@ body{
     border: 5px solid #adefff;
     border-radius: 20px;
     top: 50px;
+    z-index: 1;
 }
 #locateButton{
     position: absolute;
