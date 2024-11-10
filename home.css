@@ -1,0 +1,103 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #d3fcff;
+    transition: opacity 2s ease, background-color 0.5s ease; /* 背景色変更のトランジションを追加 */
+}
+
+#logoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    transition: all 0.5s ease; /* ロゴ縮小時のトランジション */
+}
+
+#logoImage {
+    max-width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    transition: all 0.5s ease; /* ロゴ縮小時のトランジション */
+}
+
+#circleText {
+    width: 300px;
+    height: 300px;
+    margin: 100px auto;
+    font-size: 12px;
+  }
+  #svg {
+    overflow: visible;
+  }
+  #circle {
+    fill: none;
+  }
+  #text {
+    font-family: 'Noto Serif', serif; /* フォントファミリーを設定 */
+    font-size: 10em; /* フォントサイズを10倍に */
+    font-weight: bold; /* 文字を太く */
+    fill: #5C70F6; /* 文字色を設定 */
+    opacity: 1; /* 初期不透明度 */
+    transition: opacity 2s ease; /* フェードアウトのトランジション */
+    margin-top: 0rem;
+    position: absolute; /* 既存のスタイルに加えて absolute を追加 */
+    top: 0;
+    left: 0;
+    z-index: 1; /* SVGを背面に */
+  }
+
+  #home2Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -100px; /* 必要に応じて調整 */
+    width: 98%; /* または適切な値 */
+    box-sizing: border-box;
+    background-image: url("background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+#home2Content header, #home2Content main {
+  /* home2.css のスタイルを上書き */
+  width: 100%; /* または適切な幅 */
+  margin: 10% auto;
+  text-align: center;
+}
+
+#home2Content main h1{
+  font-size: 70px;
+  font-family: 'Noto Serif', serif;
+  color: #d3fcff;
+  text-shadow: 2px 2px 4px #5C70F6;
+}
+
+#home2Content main p{
+  font-size: 20px;
+  font-family: 'Noto Serif', serif;
+  color: #d3fcff;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+footer{
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  background-color: #5C70F6;
+  color: #d3fcff;
+  
+}
+
+#noneHeader{
+  background-color: #d3fcff;
+}

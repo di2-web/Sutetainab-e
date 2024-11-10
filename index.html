@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stetainab!e-Home</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="home2.css">
+</head>
+<body>
+
+    <header id="noneHeader">
+        
+    </header>
+
+    <p><br><br><br><br><br><br><br><br></p>
+    <div id="logoContainer">
+        <div id="circleText">
+            <svg viewBox="0 0 1000 1000" id="svg">
+                <path d="M 0,500 a 500,500 0 1,1 0,1 z" id="circle"></path>
+                <text id="text">
+                    <textPath xlink:href="#circle" id="typeText"></textPath>
+                </text>
+            </svg>
+        </div>
+        <img src="logo-circle.png" alt="ロゴ" id="logoImage">
+    </div>
+
+
+    <div id="home2Content" style="display:none;">
+        <main>
+            <h1>Sutetainab!e</h1>
+            <p>Sutetainab!e は、あなたの現在地から最寄りのゴミ箱を検索し、地図上でご案内するサービスです。</p>
+            <button id="startButton" onclick="location.href='map.html'">地図を表示!</button>
+        </main>
+    </div>
+
+    <p><br></p>
+
+    <footer>© All rights reserved by Sutetainab!e</footer>
+    <script src="home.js"></script>
+</body>
+</html>

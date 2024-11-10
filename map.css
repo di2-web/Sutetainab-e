@@ -1,0 +1,64 @@
+body{
+    background-image: url("background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #b6b6b6;
+}
+#logo{    
+    width: 300px;
+    height: 100px;
+}
+#map {
+    width: 90vw; /* 画面幅の90% */
+    height: 75vh; /* 画面高さの50% */
+    margin: 0 auto; /* 中央寄せ */
+    border: 5px solid #adefff;
+    border-radius: 20px;
+    top: 50px;
+}
+#locateButton{
+    position: absolute;
+    top: 180px;
+    left: 20px;
+    z-index: 1;
+    font-size: 19px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 4px 9px;
+}
+
+#search-container {
+  position: absolute;
+  top: 120px; /* ロゴの下に配置 */
+  left: 5vw;
+  z-index: 1; /* マップの上に表示 */
+}
+
+#searchBox {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+#searchButton {
+  padding: 5px 10px;
+  background-color: #4CAF50; /* 緑色 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+#routeButton {
+  padding: 5px 10px;
+  background-color: #4CAF50; /* 緑色 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* z-index: 2; */
+}

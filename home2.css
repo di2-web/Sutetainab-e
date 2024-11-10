@@ -1,0 +1,32 @@
+body{
+    /* background-image: url("images/background.png"); */
+    /* background-size: 100vw 180vh;
+    background-position: center;
+    background-repeat: no-repeat; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* フォントを Arial に変更 */
+    color: #000; /* 文字色を黒色に */
+}
+
+#title{
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #fff; /* 影をつける */
+}
+
+#startButton{
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: #adefff;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px #000; /* 影をつける */
+}
