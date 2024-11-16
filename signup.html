@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>サインアップ</title>
-  <link rel="stylesheet" href="style.css"> </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サインアップ</title>
+</head>
 <body>
-  <h1>サインアップ</h1>
-  <form id="signupForm">
-    <label for="username">ユーザー名:</label><input type="text" id="username" required><br>
-    <label for="password">パスワード:</label><input type="password" id="password" required><br>
-    <button type="submit">登録</button>
-  </form>
-  <script src="signup.js"></script>
+    <form id="signupForm">
+        <input id="username" type="text" placeholder="ユーザー名"></input>
+        <input id="password" type="password" placeholder="パスワード"></input>
+        <button id="signupButton" type="submit">サインアップ</button>
+    </form>
+
+    <a href="signin.html">アカウントをお持ちの方はこちら</a>
+    <script type="module" src="signup.js"></script>
 </body>
 </html>

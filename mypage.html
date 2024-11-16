@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>マイページ</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マイページ</title>
 </head>
 <body>
-  <h1>マイページ</h1>
-  <p>ようこそ、<span id="usernameDisplay"></span>さん！</p>
-  <p>現在のポイント: <span id="pointsDisplay">0</span></p>
+    <h1>マイページ</h1>
+    <p id="username">ユーザー名:</p>
+    <p id="points">現在のポイント: pt</p>
 
-  <form id="uploadForm">
-    <input type="file" id="imageUpload" accept="image/*"><br>
-    <button type="submit">画像をアップロード</button>
-  </form>
+    <button id="logoutButton" >ログアウト</button>
 
-  <script src="mypage.js"></script>
-  <script type="module" src="common2.js"></script>
+    <script type="module" src="mypage.js"></script>
 </body>
 </html>

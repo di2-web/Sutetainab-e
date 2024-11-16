@@ -1,37 +1,59 @@
-// mypage.js
-// Cookieからユーザー名とポイントを取得
-const cookies = document.cookie.split('; ');
-let username = '';
-let points = 0;
+// Firebaseのライブラリをインポート
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, query, where, orderBy } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-cookies.forEach(cookie => {
-    const parts = cookie.split('=');
-    if (parts[0] === 'username') username = parts[1];
-    if (parts[0] === 'points') points = parseInt(parts[1]) || 0;
-});
+// Firebaseの設定
+const firebaseConfig = {
+  apiKey: "AIzaSyD3IlNR5d97zzGmxHDaTGFp6110X-14xuk",
+  authDomain: "sutetainab-e.firebaseapp.com",
+  projectId: "sutetainab-e",
+  storageBucket: "sutetainab-e.firebasestorage.app",
+  messagingSenderId: "618471725173",
+  appId: "1:618471725173:web:8c60289d5d51a7dce6c03c",
+};
 
-document.getElementById('usernameDisplay').textContent = username;
-document.getElementById('pointsDisplay').textContent = points;
+// Firebaseアプリの初期化
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-document.getElementById('uploadForm').addEventListener('submit', function(event) {
-    event.preventDefault();
 
-    const file = document.getElementById('imageUpload').files[0];
-    if (!file) {
-        alert("画像を選択してください。");
-        return;
+async function userLoading() {
+
+    if (localStorage.getItem('username') === null) {
+      alert("ログインしてください");
+      window.location.href = 'signin.html';
+
+    } else {
+    
+        try {
+            const username = localStorage.getItem('username');
+            const q = query(collection(db, "users"), where("username", "==", username));
+            const querySnapshot = await getDocs(q);   
+            
+            if(querySnapshot.empty){
+                alert("ユーザーが存在しません");
+            }else{
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const Fusername = data.username;
+                    const Fpoints = data.points;
+
+                    document.getElementById("username").textContent = "ユーザー名:" + Fusername;
+                    document.getElementById("points").textContent = "現在のポイント:" + Fpoints + "pt";
+                });
+            }
+        } 
+        catch (error) {
+            console.error("クエリエラー:", error);
+        }
     }
+}
 
-    // 画像アップロード処理 (ダミー)
-    console.log('アップロード処理開始:', file.name);
-    setTimeout(() => {
-        console.log("アップロード完了！");
-        points += 10; // ポイントを加算
-        document.getElementById('pointsDisplay').textContent = points;
+function logout() {
+    localStorage.removeItem('username');
+    window.location.href = 'map.html';
+}
 
-        // Cookieにポイントを保存 (有効期限、path, セキュリティ対策などは必要に応じて実装)
-        document.cookie = `points=${points};`;
+document.getElementById("logoutButton").addEventListener("click", logout);
 
-        alert("画像のアップロードが完了し、10ポイント獲得しました！");
-    }, 1000);
-});
+  userLoading();
