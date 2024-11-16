@@ -1,0 +1,58 @@
+/* style.css */
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url("background.png"); /* 背景画像を設定 (他のCSSから) */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-size: 2em; /* フォントサイズを大きく */
+    margin-bottom: 20px; /* マージンを追加 */
+    color: #d3fcff; /* home.cssのメインカラーを使用 */
+    text-shadow: 2px 2px 4px #5C70F6; /* home.cssのテキストシャドウを使用 */
+
+}
+
+p {
+    font-size: 1.2em; /* フォントサイズを少し大きく */
+    margin-bottom: 10px; /* マージンを追加 */
+    color: #d3fcff; /* home.cssのメインカラーを使用 */
+    text-shadow: 2px 2px 4px #000000; /* home.cssのテキストシャドウを使用 */
+}
+
+#uploadForm {
+    display: flex;
+    flex-direction: column; /* 要素を縦に配置 */
+    width: 80%; /* 幅を調整 */
+    max-width: 400px; /* 最大幅を設定 */
+    margin: 0 auto; /* 中央寄せ */
+}
+
+#uploadForm input[type="file"] {
+    padding: 10px;
+    margin-bottom: 10px; /* マージンを追加 */
+    border: 1px solid #ccc;
+    border-radius: 5px; /* 角を丸く */
+}
+
+#uploadForm button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* 緑色 (他のCSSから) */
+    color: white;
+    border: none;
+    border-radius: 5px; /* 角を丸く */
+    cursor: pointer;
+    margin-bottom: 20px; /* マージンを追加 */
+}
+
+#usernameDisplay {
+  font-weight: bold;
+}

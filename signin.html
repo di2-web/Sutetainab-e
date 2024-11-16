@@ -2,21 +2,16 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>サインイン</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <h1>サインイン</h1>
-
-  <form id="siForm">
-    <label for="username">ユーザー名:</label><br>
-    <input type="text" id="username" name="username"><br><br>
-    <button type="submit">サインイン</button>
+  <form id="signinForm">
+    <label for="username">ユーザー名:</label><input type="text" id="username" required><br>
+    <label for="password">パスワード:</label><input type="password" id="password" required><br>
+    <button type="submit">ログイン</button>
   </form>
-
-  <a href= "signup.html" >アカウントを持っていない方はこちら</a>
-
-  <script type="module" src="signin.js"></script>
+  <script src="signin.js"></script>
 </body>
 </html>

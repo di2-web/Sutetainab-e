@@ -1,43 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マイページ</title>
-    <style>
-        /* 必要に応じてスタイルを追加 */
-        body {
-            font-family: sans-serif;
-        }
-        #uploadForm {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        #preview {
-            max-width: 200px;
-            margin-bottom: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>マイページ</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>マイページ</h1>
+  <p>ようこそ、<span id="usernameDisplay"></span>さん！</p>
+  <p>現在のポイント: <span id="pointsDisplay">0</span></p>
 
-<h1>マイページ</h1>
+  <form id="uploadForm">
+    <input type="file" id="imageUpload" accept="image/*"><br>
+    <button type="submit">画像をアップロード</button>
+  </form>
 
-<p>ようこそ、<span id="username"></span>さん！</p>
-
-<p>現在のポイント: <span id="points">0</span></p>
-
-
-<form id="uploadForm">
-    <input type="file" id="imageInput" accept="image/*">
-    <img id="preview" src="#" alt="プレビュー" style="display:none;">
-    <button type="submit">送信</button>
-</form>
-
-<button id="logoutButton">ログアウト</button> <div id="debugArea"></div>
-
-<script type="module" src="mypage.js"></script>
-
+  <script src="mypage.js"></script>
+  <script type="module" src="common2.js"></script>
 </body>
 </html>
