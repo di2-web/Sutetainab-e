@@ -13,11 +13,16 @@
     <p id="username">ユーザー名:</p>
     <p id="points">現在のポイント: pt</p>
     <p>ゴミを捨てた時の写真を選択してください</p>
-    <input type="file" id="photoUpload" accept="image/*">
-    <img id="uploadedImage" style="max-width: 300px; max-height: 300px; display:none;"> <div id="locationInfo">位置情報: 取得中...</div>
-
+<div id="dropZone">
+    <p id="dragText">ここにファイルをドラッグ＆ドロップ</p>
+    <a href="#" id="fileSelectLink">または、ファイルを選択</a>
+    <input type="file" id="photoUpload" accept="image/*" hidden>
+</div>
+    <p><br></p>
     <button id="logoutButton">ログアウト</button>
+
 
     <script type="module" src="mypage.js"></script>
 </body>
 </html>
+

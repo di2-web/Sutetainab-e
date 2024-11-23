@@ -125,20 +125,55 @@ function convertDMSToDD(dms, ref) {
     return ref === 'S' || ref === 'W' ? dd * -1 : dd;
 }
 
-document.getElementById('photoUpload').addEventListener('change', (event) => {
+const dropZone = document.getElementById('dropZone');
+const fileSelectLink = document.getElementById('fileSelectLink');
+const fileInput = document.getElementById('photoUpload');
+
+// ドラッグ＆ドロップのイベントリスナーを追加
+dropZone.addEventListener('dragover', (event) => {
+    event.preventDefault();
+    dropZone.classList.add('dragover'); // CSSクラスを追加して見た目を変える
+});
+
+dropZone.addEventListener('dragleave', () => {
+    dropZone.classList.remove('dragover'); // CSSクラスを削除
+});
+
+dropZone.addEventListener('drop', (event) => {
+    event.preventDefault();
+    dropZone.classList.remove('dragover');
+
+    const file = event.dataTransfer.files[0]; // ドロップされたファイルを取得
+    if (!file) {
+        alert('ファイルが選択されていません');
+        return;
+    }
+
+    processFile(file); // ファイルを処理する関数を呼び出し
+});
+
+// 「ファイルを選択」リンクのクリックでファイル選択ダイアログを開く
+fileSelectLink.addEventListener('click', (event) => {
+    event.preventDefault(); // デフォルトのリンク動作を無効化
+    fileInput.click(); // ファイル選択ダイアログを表示
+});
+
+// ファイル選択ダイアログでファイルを選択したときの処理
+fileInput.addEventListener('change', (event) => {
     const file = event.target.files[0]; // 選択されたファイルを取得
     if (!file) {
         alert('ファイルが選択されていません');
         return;
     }
 
-    const reader = new FileReader(); // ファイルリーダーを作成
-    reader.onload = function (e) {
-        const img = document.getElementById('uploadedImage'); // アップロードした画像を表示するための要素
-        img.src = e.target.result; // 画像を表示
-        img.style.display = 'block';
+    processFile(file); // ファイルを処理する関数を呼び出し
+});
 
-        // EXIFデータを取得して緯度経度をチェック
+// ファイルを処理する関数
+function processFile(file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        // ファイル処理ロジック（既存のEXIF読み取りなど）
         EXIF.getData(file, function () {
             const lat = EXIF.getTag(this, 'GPSLatitude');
             const lng = EXIF.getTag(this, 'GPSLongitude');
@@ -146,42 +181,35 @@ document.getElementById('photoUpload').addEventListener('change', (event) => {
             const lngRef = EXIF.getTag(this, 'GPSLongitudeRef');
 
             if (lat && lng && latRef && lngRef) {
-                const latitude = convertDMSToDD(lat, latRef); // 撮影した写真の緯度を取得
-                const longitude = convertDMSToDD(lng, lngRef); // 撮影した写真の経度を取得
+                const latitude = convertDMSToDD(lat, latRef);
+                const longitude = convertDMSToDD(lng, lngRef);
 
-                const targetLat = localStorage.getItem('targetLat'); // ローカルストレージから目標緯度を取得
-                const targetLng = localStorage.getItem('targetLng'); // ローカルストレージから目標経度を取得
+                const targetLat = localStorage.getItem('targetLat');
+                const targetLng = localStorage.getItem('targetLng');
 
                 if (targetLat != null && targetLng != null) {
-                    // 小数点以下6桁に丸めた値で比較
-                    const formattedLat = latitude.toFixed(5); // 写真の緯度を6桁に丸める
-                    const formattedLng = longitude.toFixed(5); // 写真の経度を6桁に丸める
-                    const formattedTargetLat = parseFloat(targetLat).toFixed(5); // 目標緯度を6桁に丸める
-                    const formattedTargetLng = parseFloat(targetLng).toFixed(5); // 目標経度を6桁に丸める
+                    const formattedLat = latitude.toFixed(5);
+                    const formattedLng = longitude.toFixed(5);
+                    const formattedTargetLat = parseFloat(targetLat).toFixed(5);
+                    const formattedTargetLng = parseFloat(targetLng).toFixed(5);
 
-                    // 丸めた値で比較
                     if (formattedLat === formattedTargetLat && formattedLng === formattedTargetLng) {
-                        // 緯度と経度が一致する場合の処理
                         alert("撮影場所と指定されたごみ捨て場所が一致しました");
                     } else {
-                        // 緯度または経度が一致しない場合の処理
                         alert("あなたが選択したごみを捨てる場所と、写真を撮った場所が違います");
                     }
                 } else {
-                    // 目標の緯度・経度が設定されていない場合
                     alert("マップに戻り、ごみを捨てる場所を選択してください");
                     window.location.href = 'map.html';
                 }
             } else {
-                // EXIFデータから緯度・経度が取得できない場合
                 alert("写真が撮られた場所を取得できませんでした");
             }
         });
     };
 
-    // ファイルをDataURL形式で読み込む（画像のプレビューを表示するため）
     reader.readAsDataURL(file);
-});
+}
 
 
   userLoading();
