@@ -21,7 +21,6 @@ const db = getFirestore(app);
 async function userLoading() {
 
     if (localStorage.getItem('username') === null) {
-      alert("ログインしてください");
       window.location.href = 'signin.html';
 
     } else {
