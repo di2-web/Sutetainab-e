@@ -33,7 +33,6 @@ async function signIn(username, password) {
           const Fpassword = data.password;
   
           if (Fpassword === password) {
-            alert("ログイン成功");
             localStorage.setItem('username', username);
             window.location.href = 'mypage.html';
           } else {

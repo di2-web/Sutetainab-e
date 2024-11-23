@@ -217,14 +217,11 @@ let routingControl = null;
 // ルート検索ボタンのクリックイベントハンドラ
 function routeTo(targetLat, targetLng) {
 
-  let latValue = parseFloat(targetLat.toFixed(6));
-  let lngValue = parseFloat(targetLng.toFixed(6));
-
-  localStorage.setItem('targetLat', latValue);
-  localStorage.setItem('targetLng', lngValue);
+  localStorage.setItem('targetLat', targetLat);
+  localStorage.setItem('targetLng', targetLng);
 
  if (!currentLocation) {
-   alert("現在地が取得できていません。");
+   alert("現在地が取得できていません");
    return;
  }
 
