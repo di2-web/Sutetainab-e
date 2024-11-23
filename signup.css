@@ -1,0 +1,74 @@
+#darkModeToggle {
+  background-size: contain; /* 画像をボタンのサイズに合わせる */
+  background-repeat: no-repeat; /* 画像を繰り返さない */
+  background-position: center; /* 画像を中央に配置 */
+  border: none; /* 枠線を削除 */
+  cursor: pointer; /* カーソルをポインターに変更 */
+  background-color: transparent; /* 背景を透明にする */
+  background-image: url('moon.png');
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+  padding: 5px; /* パディングを追加 */
+  border-radius: 50%; /* ボタン全体を円形にする */
+  background-color: #ffffff; /* 背景色と不透明度 */
+  border : 3px solid #626262;
+}
+
+html {
+  transition: filter 0.1s ease-in-out; /* filterプロパティの変化にトランジションを追加 */
+}
+
+html[theme='dark-mode'] {
+  filter: invert(1) hue-rotate(180deg); /* 必要であれば残す */
+}
+
+body {
+  font-family: sans-serif; /* フォントを設定 */
+  display: flex;
+  flex-direction: column; /* 縦方向に要素を配置 */
+  align-items: center; /* 要素を中央揃え */
+  justify-content: center; /* 要素を中央揃え */
+  height: 100vh;
+  margin: 0;
+  background-image: url("background.png"); /* 背景画像を設定 */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+  
+  #signupForm {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  a {
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+  }
