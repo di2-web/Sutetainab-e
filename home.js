@@ -9,7 +9,7 @@ function typeWriter() {
     if (index < text.length) {
         textElement.innerHTML += text.charAt(index);
         index++;
-        setTimeout(typeWriter, 50);
+        setTimeout(typeWriter, 15);
     } else {
         setTimeout(() => {
             // ロゴとテキストを縮小
@@ -62,4 +62,5 @@ darkModeToggle.addEventListener('click', () => {
     // ダークモードを同期
     syncDarkMode();
 });
-typeWriter();
+
+setTimeout(typeWriter, 700);

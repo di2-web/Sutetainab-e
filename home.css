@@ -82,51 +82,48 @@ body {
     z-index: 1; /* SVGを背面に */
   }
 
-  #home2Content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: -100px; /* 必要に応じて調整 */
-    width: 98%; /* または適切な値 */
-    box-sizing: border-box;
-    background-image: url("background.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 20px;
-    z-index: 10;
-}
-
-#home2Content header, #home2Content main {
-  /* home2.css のスタイルを上書き */
-  width: 100%; /* または適切な幅 */
-  margin: 10% auto;
+/* コンテンツエリア */
+#home2Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
+  z-index: 10;
 }
 
-#home2Content main h1{
-  font-size: 70px;
+#home2Content h1 {
+  font-size: 3em;
   font-family: 'Noto Serif', serif;
-  color: #d3fcff;
-  text-shadow: 2px 2px 4px #5C70F6;
+  color: #5C70F6;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-#home2Content main p{
-  font-size: 20px;
+#home2Content p {
+  font-size: 1.2em;
   font-family: 'Noto Serif', serif;
-  color: #d3fcff;
-  text-shadow: 2px 2px 4px #000000;
+  color: #333;
 }
 
-footer{
-  height: 30px;
-  width: 100%;
-  text-align: center;
+#startButtonContainer button{
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   background-color: #5C70F6;
-  color: #d3fcff;
-  
+  color: #fff;
+  transition: background-color 0.3s ease;
 }
 
-#noneHeader{
-  background-color: #d3fcff;
+#startButtonContainer button:hover {
+  background-color: #3e50b4;
 }
