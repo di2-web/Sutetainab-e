@@ -214,5 +214,66 @@ function processFile(file) {
     reader.readAsDataURL(file);
 }
 
+// モーダル関連の要素を取得
+const rewardModal = document.getElementById("rewardModal");
+const closeModal = document.querySelector(".close");
+const rewardButtons = document.querySelectorAll(".reward-button");
+
+// 商品を獲得するボタン（例: ページに「商品を獲得」というボタンを追加）
+const openModalButton = document.createElement("button");
+openModalButton.textContent = "商品を獲得";
+openModalButton.style.marginTop = "20px";
+document.querySelector(".container").appendChild(openModalButton);
+
+// モーダルを開く
+openModalButton.addEventListener("click", () => {
+    rewardModal.style.display = "block";
+});
+
+// モーダルを閉じる
+closeModal.addEventListener("click", () => {
+    rewardModal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+    if (event.target === rewardModal) {
+        rewardModal.style.display = "none";
+    }
+});
+
+// 商品を選択してポイントを消費
+rewardButtons.forEach((button) => {
+    button.addEventListener("click", async (event) => {
+        const requiredPoints = parseInt(event.target.getAttribute("data-points"));
+
+        try {
+            const username = localStorage.getItem('username');
+            const q = query(collection(db, "users"), where("username", "==", username));
+            const querySnapshot = await getDocs(q);
+
+            if (querySnapshot.empty) {
+                alert("ユーザーが存在しません");
+                return;
+            }
+
+            querySnapshot.forEach(async (docSnapshot) => {
+                const userRef = doc(db, "users", docSnapshot.id);
+                const currentPoints = docSnapshot.data().points;
+
+                if (currentPoints >= requiredPoints) {
+                    await updateDoc(userRef, { points: currentPoints - requiredPoints });
+                    alert(`${requiredPoints}ポイントを使って商品を獲得しました！`);
+                    userLoading(); // ポイントの再読み込み
+                    rewardModal.style.display = "none"; // モーダルを閉じる
+                } else {
+                    alert("ポイントが足りません");
+                }
+            });
+        } catch (error) {
+            console.error("エラー:", error);
+        }
+    });
+});
+
 
   userLoading();

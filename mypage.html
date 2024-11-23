@@ -14,6 +14,24 @@
         <h1>マイページ</h1>
         <p id="username">ユーザー名: </p>
         <p id="points">現在のポイント: pt</p>
+        <div id="rewardModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>商品を獲得</h2>
+                <p>以下の商品を選択してください:</p>
+                <ul>
+                    <li>
+                        <button class="reward-button" data-points="500">Amazonギフトカード (500pt)</button>
+                    </li>
+                    <li>
+                        <button class="reward-button" data-points="300">Google Playギフトカード (300pt)</button>
+                    </li>
+                    <li>
+                        <button class="reward-button" data-points="100">その他の商品 (100pt)</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <p class="instruction">ゴミを捨てた時の写真を選択してください</p>
         <div id="dropZone">
             <p id="dragText">ここにファイルをドラッグ＆ドロップ</p>
