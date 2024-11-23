@@ -28,70 +28,95 @@
     filter: invert(1) hue-rotate(180deg); /* 必要であれば残す */
   }
 
+/* 全体のリセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Noto Serif', serif; /* フォントを設定 */
-    display: flex;
-    flex-direction: column; /* 縦方向に要素を配置 */
-    align-items: center; /* 要素を中央揃え */
-    justify-content: center; /* 要素を中央揃え */
-    height: 100vh;
-    margin: 0;
-    background-image: url("background.png"); /* 背景画像を設定 */
-    background-size: cover;
-    background-repeat: no-repeat;
+  font-family: 'Noto Serif', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  background-image: url("background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-  
-  h1 {
-    font-size: 70px;
-    font-family: 'Noto Serif', serif;
-    color: #ffffff;
-    text-shadow: 1px 1px 2px #000000;
-  }
-    
-  p {
-    font-size: 20px;
-    font-family: 'Noto Serif', serif;
-    color: #d3fcff;
-    text-shadow: 0.5px 0.5px 1px #000000;
-  }
-    
-  button {
-      padding: 10px 20px;
-      background-color: #4CAF50; /* 緑色 */
-      color: white;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-      margin-top: 20px;
-  }
 
+/* コンテナ中央揃え */
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+}
+
+/* ヘッダー */
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* パラグラフ */
+p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* ドロップゾーン */
 #dropZone {
-    border: 2px dashed #4CAF50; /* 緑色の点線 */
-    padding: 20px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.7); /* 半透明の背景色 */
-    color: #4CAF50; /* 緑色の文字 */
-    font-size: 16px;
-    width: 60%;
-    height: 200px;
-    margin: 20px auto;
-    border-radius: 5px;
-    position: relative; /* 内部要素の配置に対応 */
+  border: 2px dashed #4CAF50;
+  padding: 20px;
+  background-color: rgba(245, 245, 245, 0.9);
+  color: #4CAF50;
+  font-size: 1rem;
+  text-align: center;
+  margin: 20px auto;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
-#dropZone p {
-    margin: 0 0 10px; /* 下にマージンを追加 */
-    text-shadow: none;
-    color: #4CAF50;
+#dropZone:hover {
+  background-color: rgba(76, 175, 80, 0.1);
+  border-color: #3e8e41;
 }
 
+/* ドロップゾーン内テキスト */
 #fileSelectLink {
-    color: #4CAF50; /* 緑色のリンク風 */
-    text-decoration: underline;
-    cursor: pointer;
-    display: inline-block; /* リンクをインラインブロックに */
+  color: #4CAF50;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 #fileSelectLink:hover {
-    text-decoration: none; /* ホバー時に下線を消す */
+  color: #3e8e41;
+  text-decoration: none;
+}
+
+/* ボタン */
+button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #3e8e41;
 }

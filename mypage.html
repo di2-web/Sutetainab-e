@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
     <link rel="stylesheet" href="mypage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
     <title>マイページ</title>
 </head>
 <body>
     <button id="darkModeToggle"></button>
-    <h1>マイページ</h1>
-    <p id="username">ユーザー名:</p>
-    <p id="points">現在のポイント: pt</p>
-    <p>ゴミを捨てた時の写真を選択してください</p>
-<div id="dropZone">
-    <p id="dragText">ここにファイルをドラッグ＆ドロップ</p>
-    <a href="#" id="fileSelectLink">または、ファイルを選択</a>
-    <input type="file" id="photoUpload" accept="image/*" hidden>
-</div>
-    <button id="logoutButton">ログアウト</button>
-
-
+    <div class="container">
+        <h1>マイページ</h1>
+        <p id="username">ユーザー名: </p>
+        <p id="points">現在のポイント: pt</p>
+        <p class="instruction">ゴミを捨てた時の写真を選択してください</p>
+        <div id="dropZone">
+            <p id="dragText">ここにファイルをドラッグ＆ドロップ</p>
+            <a href="#" id="fileSelectLink">または、ファイルを選択</a>
+            <input type="file" id="photoUpload" accept="image/*" hidden>
+        </div>
+        <button id="logoutButton">ログアウト</button>
+    </div>
     <script type="module" src="mypage.js"></script>
 </body>
 </html>
-

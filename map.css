@@ -1,11 +1,3 @@
-footer{
-  height: 30px;
-  width: 100%;
-  text-align: center;
-  background-color: #5C70F6;
-  color: #d3fcff;
-  
-}
 
 #darkModeToggle {
   background-size: contain; /* 画像をボタンのサイズに合わせる */
@@ -37,7 +29,7 @@ html[theme='dark-mode'] {
 
 body{
     background-image: url("background.png");
-    background-size: cover;
+    background-size: 100vw 180vh;
     background-position: center;
     background-repeat: no-repeat;
     background-color: #b6b6b6;
@@ -67,28 +59,61 @@ body{
     padding: 4px 9px;
 }
 
+
+css
+コードをコピーする
 #search-container {
   position: absolute;
-  top: 120px; /* ロゴの下に配置 */
-  left: 5vw;
-  z-index: 1; /* マップの上に表示 */
+  top: 10%; /* ページ上部に配置 */
+  left: 50%; /* 横中央 */
+  transform: translateX(-50%); /* 中央揃え */
+  z-index: 1;
+  width: 90%; /* スマホ対応で幅を調整 */
+  max-width: 500px; /* 最大幅の制限 */
+  text-align: center; /* 中央揃え */
+}
+
+#searchBoxWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8); /* 半透明の背景 */
+  border-radius: 30px; /* 丸みを強調 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽いシャドウで立体感を追加 */
+  overflow: hidden; /* 枠からはみ出さないようにする */
 }
 
 #searchBox {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  z-index: 2;
+  flex: 1; /* 横幅を伸縮可能に */
+  padding: 15px 20px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-radius: 30px 0 0 30px; /* 左端を丸める */
+  color: #333;
 }
 
 #searchButton {
-  padding: 5px 10px;
   background-color: #4CAF50; /* 緑色 */
   color: white;
   border: none;
-  border-radius: 5px;
+  font-size: 18px;
+  padding: 10px 20px;
   cursor: pointer;
-  z-index: 2;
+  transition: background-color 0.3s ease; /* ホバー時の色変更を滑らかに */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 30px 30px 0; /* 右端を丸める */
+}
+
+#searchButton:hover {
+  background-color: #45a049; /* ホバー時の色 */
+}
+
+#searchButton i {
+  margin-right: 5px; /* アイコンとテキストの間隔 */
+  font-size: 18px; /* アイコンのサイズ */
 }
 
 #routeButton {
