@@ -183,6 +183,8 @@ function processFile(file) {
             if (lat && lng && latRef && lngRef) {
                 const latitude = convertDMSToDD(lat, latRef);
                 const longitude = convertDMSToDD(lng, lngRef);
+                localStorage.setItem('targetLat', latitude);// 現在地の緯度をローカルストレージに保存(今だけ)
+                localStorage.setItem('targetLng', longitude);
 
                 const targetLat = localStorage.getItem('targetLat');
                 const targetLng = localStorage.getItem('targetLng');
