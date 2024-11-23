@@ -196,6 +196,7 @@ function processFile(file) {
                     const formattedTargetLng = parseFloat(targetLng).toFixed(5);
 
                     if (formattedLat === formattedTargetLat && formattedLng === formattedTargetLng) {
+                        addPoints();
                         userLoading();
                     } else {
                         alert("あなたが選択したごみを捨てる場所と、写真を撮った場所が違います");
